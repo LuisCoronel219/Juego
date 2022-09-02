@@ -43,7 +43,7 @@
             ctx = cv.getContext('2d');
             niverUp=25;
             speed=0;
-            nivel=1;
+            nivel=0;
             comida1= new Cuadrado(generateRandomInteger(460), generateRandomInteger(460), 40, 40, "red");
             comida2= new Cuadrado(generateRandomInteger(460), generateRandomInteger(460), 40, 40, "red");
             comida3= new Cuadrado(generateRandomInteger(460), generateRandomInteger(460), 40, 40, "red");
@@ -132,8 +132,7 @@
                 ctx.fillStyle="white";
                 ctx.fillText('ganaste',375,375);
                 musica.pause();
-                autos.pause();
-                autos.sleep();
+              
                 
             }
                 
@@ -150,8 +149,6 @@
                 ctx.fillStyle="white";
                 ctx.fillText('PAUSE',375,375);
                 musica.pause();
-                autos.pause();
-                autos.sleep();
             }
         }
         function mover(){
@@ -282,7 +279,7 @@
             if (direction == 'right') {
                 if(player1.se_tocan(ob[0])||player1.se_tocan(ob[1])||player1.se_tocan(ob[2])||player1.se_tocan(ob[3])||player1.se_tocan(ob[4])||player1.se_tocan(ob[5])||player1.se_tocan(ob[6])||player1.se_tocan(ob[7])||player1.se_tocan(ob[8])||player1.se_tocan(ob[9]))
                 {
-                    pause=true;
+                    fin=true;
                 }else
                 {
                     player1.x += 2;  autos.play();
@@ -299,7 +296,7 @@
                 
                 if(player1.se_tocan(ob[0])||player1.se_tocan(ob[1])||player1.se_tocan(ob[2])||player1.se_tocan(ob[3])||player1.se_tocan(ob[4])||player1.se_tocan(ob[5])||player1.se_tocan(ob[6])||player1.se_tocan(ob[7])||player1.se_tocan(ob[8])||player1.se_tocan(ob[9])) 
                 {
-                    pause=true;
+                    fin=true;
 
                 }else
                 {     
@@ -316,7 +313,7 @@
             if (direction == 'down') {
                 if(player1.se_tocan(ob[0])||player1.se_tocan(ob[1])||player1.se_tocan(ob[2])||player1.se_tocan(ob[3])||player1.se_tocan(ob[4])||player1.se_tocan(ob[5])||player1.se_tocan(ob[6])||player1.se_tocan(ob[7])||player1.se_tocan(ob[8])||player1.se_tocan(ob[9]))
                 {
-                    player1.y=player1.y-2;
+                    fin=true;
 
                 }else
                 {
@@ -335,7 +332,7 @@
 
                 if(player1.se_tocan(ob[0])||player1.se_tocan(ob[1])||player1.se_tocan(ob[2])||player1.se_tocan(ob[3])||player1.se_tocan(ob[4])||player1.se_tocan(ob[5])||player1.se_tocan(ob[6])||player1.se_tocan(ob[7])||player1.se_tocan(ob[8])||player1.se_tocan(ob[9]))
                 {
-                    player1.y=player1.y+2;
+                   fin=true;
                 }else
                 { 
                        player1.y -= 2; autos.play();
@@ -344,10 +341,11 @@
                     }
 
                 }
+               
                 
             }
             seToca();
-           
+            autos.stop();
         }
         function seTocan()
         {
